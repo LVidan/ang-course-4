@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="custom-tv-show">Uneti TV Show:</label>
+  <input type="text" id="custom-tv-show" placeholder="Uneti tv show..." [(ngModel)]="inputData" />
+  
+  <ng-container *ngIf="!inputData; else hasContent">
+    <h3>Unesite vrednost!</h3>
+  </ng-container>
+
+  <ng-template #hasContent>
+    <h3>Uneli ste: {{ inputData }}</h3>
+  </ng-template>
+
+
+  <button [disabled]="!inputData" (click)="alertContent(inputData)">{{ 'Potvrdi' | uppercase }}</button>
+</div>
